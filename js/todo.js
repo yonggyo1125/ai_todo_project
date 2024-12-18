@@ -43,14 +43,17 @@ window.addEventListener("DOMContentLoaded", function () {
       for (const [field, message] of Object.entries(requiredFields)) {
         const value = frmTodo[field].value.trim();
         if (!value) {
-          throw new Error({ field, message });
+          throw new Error(JSON.stringify({ field, message }));
         }
       }
 
       // 1. 필수 항목 검증 E
     } catch (err) {
-      const { field, message } = err.message;
+      const { field, message } = JSON.parse(err.message);
       const el = document.getElementById(`error-${field}`);
+
+      console.log(err.message, el);
+
       if (el) {
         el.innerText = message;
         el.classList.remove("dn");
