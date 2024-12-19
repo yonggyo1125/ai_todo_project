@@ -28,11 +28,21 @@ window.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
 
     /**
+     * 0. 검증 실패 메세지 출력화면 초기화
      * 1. 필수 항목 검증
      * 2. 일정 추가
      *
      */
     try {
+      // 0. 검증 실패 메세지 출력화면 초기화
+      const errors = document.getElementsByClassName("error");
+      for (const el of errors) {
+        el.innerText = "";
+        if (!el.classList.contains("dn")) {
+          el.classList.add("dn");
+        }
+      }
+
       // 1. 필수 항목 검증 S
       const requiredFields = {
         title: "작업 제목을 입력하세요.",
