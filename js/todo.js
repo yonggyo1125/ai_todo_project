@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      // 1. 필수 항목 검증 S
+      // 1. 유효성 검사 S
       const requiredFields = {
         title: "작업 제목을 입력하세요.",
         deadline: "마감일을 입력하세요.",
@@ -55,9 +55,16 @@ window.addEventListener("DOMContentLoaded", function () {
         if (!value) {
           throw new Error(JSON.stringify({ field, message }));
         }
+
+        // 마감일인 경우 현재 날짜보다 이전은 될 수 없음
+        if (field === "deadline" && new Date(value) - new Date() < 0) {
+          throw new Error(
+            JSON.stringify({ field, message: "현재 날짜 이후로 입력하세요." })
+          );
+        }
       }
 
-      // 1. 필수 항목 검증 E
+      // 1. 유효성 검사 E
     } catch (err) {
       const { field, message } = JSON.parse(err.message);
       const el = document.getElementById(`error-${field}`);
