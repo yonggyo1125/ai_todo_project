@@ -43,7 +43,18 @@ const todo = {
       const dom = domParser.parseFromString(html, "text/html");
       const itemEl = dom.querySelector("li");
       itemsEl.append(itemEl);
+
+      const titWrapEl = itemEl.querySelector(".tit-wrap");
+      titWrapEl.addEventListener("click", function () {
+        todo.accodianView(this.parentElement);
+      });
     }
+  },
+  accodianView(el) {
+    const items = document.querySelectorAll(".items > .item");
+    items.forEach((item) => item.classList.remove("on"));
+
+    el.classList.add("on");
   },
 };
 
