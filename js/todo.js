@@ -48,6 +48,15 @@ const todo = {
       titWrapEl.addEventListener("click", function () {
         todo.accodianView(this.parentElement);
       });
+
+      // 삭제 처리
+      const removeEl = itemEl.querySelector(".remove");
+      removeEl.addEventListener("click", function () {
+        if (confirm("정말 삭제하겠습니까?")) {
+          const { seq } = this.dataset;
+          todo.remove(seq);
+        }
+      });
     }
   },
   accodianView(el) {
