@@ -79,7 +79,7 @@ const todo = {
       });
 
       // 작업 완료, 작업중 처리
-      const doneEls = itemEl.querySelectorAll("input[name^='done']");
+      const doneEls = document.getElementsByName(`done_${seq}`);
       const itemIndex = this.items.findIndex((item) => item.seq === seq);
       for (const el of doneEls) {
         el.addEventListener("click", function () {
@@ -201,4 +201,18 @@ window.addEventListener("DOMContentLoaded", function () {
     todo.sort(field, order);
   });
   // 작업 목록 정렬 처리 E
+
+  // 키워드 검색 처리 S
+  frmSearch.skey.addEventListener("change", function () {
+    const skey = this.value.trim();
+    todo.itemsSearched = skey
+      ? todo.items.filter(
+          ({ title, description }) =>
+            title.contains(skey) || description.contains(skey)
+        )
+      : null;
+
+    todo.render();
+  });
+  // 키워드 검색 처리 E
 });
