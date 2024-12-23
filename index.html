@@ -37,6 +37,15 @@
       <button type="submit">등록하기</button>
     </form>
 
+    <form name="frmSearch" class="search-box">
+      정렬:
+      <select name="sort">
+        <option value="seq_asc">등록순서(오름차순)</option>
+        <option value="seq_desc">등록순서(내림차순)</option>
+        <option value="dealine_asc">마감일(오름차순)</option>
+        <option value="dealine_desc">마감일(내림차순)</option>
+      </select>
+    </form>
     <ul class="items"></ul>
 
     <script type="text/html" id="tpl">

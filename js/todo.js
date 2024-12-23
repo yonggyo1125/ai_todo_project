@@ -175,4 +175,11 @@ window.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  // 작업 목록 정렬 처리 S
+  frmSearch.sort.addEventListener("change", function () {
+    const [field, order] = this.value.split("_");
+    todo.sort(field, order);
+  });
+  // 작업 목록 정렬 처리 E
 });
