@@ -79,7 +79,7 @@ const todo = {
       });
 
       // 작업 완료, 작업중 처리
-      const doneEls = document.getElementsByName("done");
+      const doneEls = itemEl.querySelectorAll("input[name^='done']");
       const itemIndex = this.items.findIndex((item) => item.seq === seq);
       for (const el of doneEls) {
         el.addEventListener("click", function () {
