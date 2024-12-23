@@ -55,7 +55,8 @@ const todo = {
         .replace(/#{description}/g, description.replace(/\n/g, "<br>"))
         .replace(/#{deadline}/g, deadline)
         .replace(/#{checkedTrue}/g, checkedTrue)
-        .replace(/#{checkedFalse}/g, checkedFalse);
+        .replace(/#{checkedFalse}/g, checkedFalse)
+        .replace(/#{addClass}/g, done ? " done" : "");
 
       const dom = domParser.parseFromString(html, "text/html");
       const itemEl = dom.querySelector("li");
@@ -70,10 +71,20 @@ const todo = {
       const removeEl = itemEl.querySelector(".remove");
       removeEl.addEventListener("click", function () {
         if (confirm("정말 삭제하겠습니까?")) {
-          const { seq } = this.dataset;
           todo.remove(seq);
         }
       });
+
+      // 작업 완료, 작업중 처리
+      const doneEls = document.getElementsByName("done");
+      const itemIndex = this.items.findIndex((item) => item.seq === seq);
+      for (const el of doneEls) {
+        el.addEventListener("click", function () {
+          const done = this.value === "true";
+          todo.items[itemIndex].done = done;
+          todo.render();
+        });
+      }
     }
   },
   accodianView(el) {
