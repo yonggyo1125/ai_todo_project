@@ -47,9 +47,31 @@
         </div>
         <div class="description">
           #{description}
-          <button type="button" class="remove" data-seq="#{seq}">
-            <i class="xi-close"></i>
-          </button>
+
+          <div class="controls">
+            <div class="done-wrap">
+              <input
+                type="radio"
+                name="done"
+                value="true"
+                id="done-true"
+                #{checkedTrue}
+              />
+              <label for="done-true">작업완료</label>
+              <input
+                type="radio"
+                name="done"
+                value="false"
+                id="done-false"
+                #{checkedFalse}
+              />
+              <label for="done-false">작업중</label>
+            </div>
+            <button type="button" class="remove" data-seq="#{seq}">
+              <i class="xi-close"></i>
+            </button>
+          </div>
+          <!--// controls -->
         </div>
       </li>
     </script>
