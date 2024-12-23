@@ -100,6 +100,19 @@ const todo = {
     const data = JSON.stringify(this.items);
     localStorage.setItem("todos", data);
   },
+  sort(field, order) {
+    this.items.sort((item1, item2) => {
+      switch (field) {
+        case "dealine":
+          let gap = new Date(item2.deadline) - new Date(item1.dealine);
+          return order === "desc" ? gap : -gap;
+        default:
+          return order == "desc"
+            ? item2.seq - item1.seq
+            : item1.seq - item2.seq;
+      }
+    });
+  },
 };
 
 window.addEventListener("DOMContentLoaded", function () {
