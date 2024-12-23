@@ -34,13 +34,29 @@ li {
 }
 
 input[type="text"],
-input[type="date"] {
+input[type="date"],
+select {
   border: 1px solid #ccc;
   height: 45px;
   border-radius: 3px;
   padding: 0 10px;
   font-size: 1.5rem;
+  width: 100%;
 }
+
+select {
+  padding: 0;
+}
+
+textarea {
+  border: 1px solid #ccc;
+  height: 200px;
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  border-radius: 3px;
+}
+
 /* 공통 E */
 
 /* 할일 목록 S */
