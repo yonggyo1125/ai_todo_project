@@ -3,6 +3,7 @@
   font-family: "Jua", serif;
   box-sizing: border-box;
   color: #000;
+  outline: none;
 }
 
 html {
@@ -30,6 +31,15 @@ li {
 /* 공통 S */
 .dn {
   display: none !important;
+}
+
+input[type="text"],
+input[type="date"] {
+  border: 1px solid #ccc;
+  height: 45px;
+  border-radius: 3px;
+  padding: 0 10px;
+  font-size: 1.5rem;
 }
 /* 공통 E */
 
