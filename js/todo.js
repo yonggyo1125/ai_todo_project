@@ -100,11 +100,12 @@ const todo = {
     const data = JSON.stringify(this.items);
     localStorage.setItem("todos", data);
   },
+  // 정렬
   sort(field, order) {
     this.items.sort((item1, item2) => {
       switch (field) {
         case "dealine":
-          let gap = new Date(item2.deadline) - new Date(item1.dealine);
+          let gap = new Date(item2.deadline) - new Date(item1.deadline);
           return order === "desc" ? gap : -gap;
         default:
           return order == "desc"
@@ -112,6 +113,8 @@ const todo = {
             : item1.seq - item2.seq;
       }
     });
+
+    this.render();
   },
 };
 
