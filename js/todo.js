@@ -12,6 +12,8 @@ const todo = {
     const seq = Date.now();
     this.items.push({ seq, title, description, deadline, done: false });
 
+    this.save(); // 추가된 작업 저장
+
     this.render(); // 화면 갱신
   },
   // 작업 삭제
@@ -21,6 +23,8 @@ const todo = {
 
     // splice로 해당 순서 번호 항목 제거
     this.items.splice(index, 1);
+
+    this.save(); // 작업 목록 저장
 
     // 화면 갱신
     this.render();
@@ -64,6 +68,13 @@ const todo = {
     items.forEach((item) => item.classList.remove("on"));
 
     el.classList.add("on");
+  },
+  /**
+   * items(할일 목록)를 localStorage로 저장
+   */
+  save() {
+    const data = JSON.stringify(this.items);
+    localStorage.setItem("todos", data);
   },
 };
 
