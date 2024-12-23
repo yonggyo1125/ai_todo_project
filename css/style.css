@@ -71,6 +71,12 @@ textarea {
   border-radius: 3px;
 }
 
+h1 {
+  border-bottom: 3px solid #000;
+  padding-bottom: 7px;
+  margin: 0 0 30px;
+}
+
 /* 공통 E */
 
 /* 할일 등록 양식 S */
@@ -83,6 +89,13 @@ textarea {
   font-size: 1.15rem;
 }
 
+.error {
+  color: #8789f7;
+  padding: 5px 10px;
+  margin: 5px 0;
+  box-shadow: 2px 2px 5px #8789f7;
+  border-radius: 2px;
+}
 /* 할일 등록 양식 E */
 
 /* 할일 목록 S */
