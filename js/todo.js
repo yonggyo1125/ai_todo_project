@@ -45,7 +45,7 @@ const todo = {
 
     const domParser = new DOMParser();
 
-    const items = this.itemsSearched ? this.itemSearched : this.items;
+    const items = this.itemsSearched ? this.itemsSearched : this.items;
 
     for (const { seq, title, description, deadline, done } of items) {
       let html = this.tpl;
@@ -102,12 +102,14 @@ const todo = {
   save() {
     const data = JSON.stringify(this.items);
     localStorage.setItem("todos", data);
+    this.itemsSearched = null;
+    frmSearch.skey.value = "";
   },
   // 정렬
   sort(field, order) {
     this.items.sort((item1, item2) => {
       switch (field) {
-        case "dealine":
+        case "deadline":
           let gap = new Date(item2.deadline) - new Date(item1.deadline);
           return order === "desc" ? gap : -gap;
         default:
@@ -208,7 +210,7 @@ window.addEventListener("DOMContentLoaded", function () {
     todo.itemsSearched = skey
       ? todo.items.filter(
           ({ title, description }) =>
-            title.contains(skey) || description.contains(skey)
+            title.includes(skey) || description.includes(skey)
         )
       : null;
 

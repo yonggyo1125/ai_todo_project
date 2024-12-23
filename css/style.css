@@ -1,6 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   font-family: "Jua", serif;
+  box-sizing: border-box;
+  color: #000;
+}
+
+html {
+  font-size: 13px; /* 1rem = 13px */
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 /* 공통 S */
