@@ -1,6 +1,7 @@
 const todo = {
   tpl: null,
   items: [], // 작업 목록
+  itemsSearched: null, // 검색된 작업 목록
 
   // 초기에 실행할 영역
   init() {
@@ -44,7 +45,9 @@ const todo = {
 
     const domParser = new DOMParser();
 
-    for (const { seq, title, description, deadline, done } of this.items) {
+    const items = this.itemsSearched ? this.itemSearched : this.items;
+
+    for (const { seq, title, description, deadline, done } of items) {
       let html = this.tpl;
       const checkedTrue = done ? " checked" : "";
       const checkedFalse = done ? "" : " checked";
