@@ -44,13 +44,18 @@ const todo = {
 
     const domParser = new DOMParser();
 
-    for (const { seq, title, description, deadline } of this.items) {
+    for (const { seq, title, description, deadline, done } of this.items) {
       let html = this.tpl;
+      const checkedTrue = done ? " checked" : "";
+      const checkedFalse = done ? "" : " checked";
+
       html = html
         .replace(/#{seq}/g, seq)
         .replace(/#{title}/g, title)
         .replace(/#{description}/g, description.replace(/\n/g, "<br>"))
-        .replace(/#{deadline}/g, deadline);
+        .replace(/#{deadline}/g, deadline)
+        .replace(/#{checkedTrue}/g, checkedTrue)
+        .replace(/#{checkedFalse}/g, checkedFalse);
 
       const dom = domParser.parseFromString(html, "text/html");
       const itemEl = dom.querySelector("li");
