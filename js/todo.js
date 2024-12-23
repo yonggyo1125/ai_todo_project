@@ -6,6 +6,14 @@ const todo = {
   init() {
     // 템플릿 HTML 추출
     this.tpl = document.getElementById("tpl").innerHTML;
+
+    // 저장된 작업 목록 조회 및 출력
+    const data = localStorage.getItem("todos");
+    if (data) {
+      this.items = JSON.parse(data);
+    }
+
+    this.render();
   },
   // 작업 등록
   add(title, description, deadline) {
