@@ -195,4 +195,21 @@ h1 {
   text-decoration: line-through;
 }
 
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label {
+  padding: 0 20px 0 33px;
+  height: 40px;
+  line-height: 40px;
+  background: url("../images/radio.png") no-repeat left center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+  background: url("../images/radio_on.png") no-repeat left center;
+}
+
 /* 할일 목록 E */
