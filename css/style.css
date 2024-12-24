@@ -153,6 +153,20 @@ h1 {
   display: block;
 }
 
+.items .description {
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+}
+
+.items .description .content {
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 5px;
+  margin-top: 15px;
+  flex-grow: 1;
+}
+
 .items > .item.done {
   text-decoration: line-through;
 }
