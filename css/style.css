@@ -150,11 +150,10 @@ h1 {
 }
 
 .items > .item.on .description {
-  display: block;
+  display: flex;
 }
 
 .items .description {
-  display: flex;
   flex-direction: column;
   min-height: 180px;
 }
@@ -165,6 +164,31 @@ h1 {
   border-radius: 5px;
   margin-top: 15px;
   flex-grow: 1;
+}
+
+.items .controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.items .controls .remove {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background: #fff;
+  text-align: center;
+  line-height: 28px;
+  cursor: pointer;
+}
+
+.items .controls .remove i {
+  font-weight: 900;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 0;
 }
 
 .items > .item.done {
